@@ -26,10 +26,10 @@ class Game : public graphics::AnimationEventListener,
     return player_projectiles_;
   }
   Player& GetPlayer() { return player; }
-
+  int GetScore() const { return score_; }
+  
+  void LaunchProjectiles(); 
   void CreateOpponents();
-  void CreateOpponentProjectiles();
-  void CreatePlayerProjectiles();
   void Init();
   void UpdateScreen();
   void Start();
@@ -37,8 +37,18 @@ class Game : public graphics::AnimationEventListener,
   void FilterIntersections();
   void OnAnimationStep() override;
   void OnMouseEvent(const graphics::MouseEvent& event) override;
+  
+  bool HasLost() { 
+      if (lost_) {
+          return true; 
+      } else {
+          return false; 
+      }
+  }
 
  private:
+  int score_ = 50; //keep track of score
+  bool lost_; //if player is still playing/has lost
   graphics::Image background_;       // represent game screen
   std::vector<std::unique_ptr<Opponent>> opponents_;  // vector of unique ptrs 
   std::vector<unique_ptr<OpponentProjectile>>

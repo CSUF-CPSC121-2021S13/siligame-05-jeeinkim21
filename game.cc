@@ -4,6 +4,16 @@
 
 #include "cpputils/graphics/image.h"
 
+void Game::LaunchProjectiles(){
+ for (int i = 0; i < opponents_.size(); i++) {
+   std::unique_ptr<OpponentProjectile> opponentUniquePtr = opponents_[i]->LaunchProjectile(); 
+   std::unique_ptr<OpponentProjectile> different_opponentUniquePtr = std::move(opponentUniquePtr); 
+   if (opponents_[i]->LaunchProjectile() != nullptr) {
+     opponents_.push_back(different_opponentUniquePtr); 
+   }
+ }
+}
+
 void Game::CreateOpponents() {
   int x = rand() % 700 + 1; 
   int y = rand() % 300 + 1; 
@@ -30,19 +40,7 @@ void Game::CreatePlayerProjectiles() {
 
 void Game::Init() {
   player.SetX(10);
-  player.SetY(10);
-//   Call the LaunchProjectile function of each opponent. If the function does not return nullptr push the returned std::unique_ptr to an OpponentProjectile object into the opponents vector.
-// Hint: Take note that you need to transfer ownership when passing std::unique_ptrs.
-
-  // for (int i = 0; i < opponents_.size(); i++) {
-  //   if (opponents_[i]->LaunchProjectile() != nullptr) {
-  //      opp
-  //   }
-  
-  // CreateOpponents();
-  // CreateOpponentProjectiles();
-  // CreatePlayerProjectiles();
-  // calling animation
+  player.SetY(10); //skip and come back later ******** 
   background_.AddMouseEventListener(*this);
   background_.AddAnimationEventListener(*this);
 
@@ -52,7 +50,6 @@ void Game::Init() {
 void Game::UpdateScreen() {
   background_.DrawRectangle(0, 0, background_.GetWidth(),
                             background_.GetHeight(), 255, 255, 255);
-
   if (player.GetIsActive()) {
     player.Draw(background_);
   }
@@ -94,31 +91,35 @@ void Game::MoveGameElements() {
   }
 
   for (int i = 0; i < opponent_projectiles_.size(); i++) {
-    if (*opponent_projectiles_[i]->GetIsActive()) {
-      *opponent_projectiles_[i]->Move(background_);
+    if (opponent_projectiles_[i]->GetIsActive()) {
+      opponent_projectiles_[i]->Move(background_);
     }
   }
 
   for (int i = 0; i < player_projectiles_.size(); i++) {
-    if (*player_projectiles_[i]->GetIsActive()) {
-      *player_projectiles_[i]->Move(background_);
+    if (player_projectiles_[i]->GetIsActive()) {
+      player_projectiles_[i]->Move(background_);
     }
   }
 }
 
 void Game::FilterIntersections() {
+
   for (int i = 0; i < opponents_.size(); i++) {
-    if (player.IntersectsWith(*opponents_[i])) {
+    if (player.IntersectsWith(opponents_[i].get()) {
       opponents_[i]->SetIsActive(false);
       player.SetIsActive(false);
+      lost_ = true; 
     }
   }
 
   for (int i = 0; i < player_projectiles_.size(); i++) {
     for (int j = 0; j < opponents_.size(); j++) {
-      if (player_projectiles_[i]->IntersectsWith(opponents_[j])) {
+      if (player_projectiles_[i]->IntersectsWith(opponents_[j].get()) {
         player_projectiles_[i]->SetIsActive(false);
         opponents_[j]->SetIsActive(false);
+        lost_= false; 
+        score_ += 1;
       }
     }
   }
@@ -126,12 +127,17 @@ void Game::FilterIntersections() {
     if (opponent_projectiles_[i]->IntersectsWith(player)) {
       opponent_projectiles_[i]->SetIsActive(false);
       player.SetIsActive(false);
+       lost_ = true; 
     }
   }
 }
 
 void Game::OnAnimationStep() {
+  if (opponents_.size() == 0) {
+    CreateOpponents();
+  }
   MoveGameElements();
+  LaunchProjectiles();
   FilterIntersections();
   UpdateScreen();
   background_.Flush();

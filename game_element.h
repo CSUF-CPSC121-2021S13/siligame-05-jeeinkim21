@@ -10,8 +10,6 @@ class GameElement {
   GameElement(int x, int y, int kWidth, int kHeight)
       : x_(x), y_(y), kWidth_(kWidth), kHeight_(kHeight) {}
 
-std::unique_ptr<OpponentProjectile> LaunchProjectile();
-
   virtual void Draw(graphics::Image& image) = 0;  // draws 5x5 black square
   // Create a Move pure virtual function that accepts a reference to a
   // graphics::Image object

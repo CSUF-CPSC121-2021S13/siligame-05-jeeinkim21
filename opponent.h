@@ -10,8 +10,8 @@ class Opponent : public GameElement {
  public:
   Opponent() : Opponent(0, 0) {}
   Opponent(int x, int y) : GameElement(x, y, 50, 50) {}  // inheritance
+  std::unique_ptr<OpponentProjectile> LaunchProjectile();
   void Move(const graphics::Image &image) override;
-
   void Draw(graphics::Image &image) override;
 };
 

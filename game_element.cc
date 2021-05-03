@@ -2,19 +2,6 @@
 #include <vector>
 #include "cpputils/graphics/image.h"
 
-
-std::unique_ptr<OpponentProjectile> GameElement::LaunchProjectile() {
-    int counter = 0; 
-    std::unique_ptr<OpponentProjectile> unique_oppProjectile = std::make_unique<OpponentProjectile>(); 
-    if (counter >= 10) { 
-      return nullptr; 
-      }
-    else { 
-      return unique_oppProjectile; 
-      }
-    counter+=1; 
-}
-
 void GameElement::Draw(graphics::Image& image) {
   // image.Initialize(50, 50);
   image.DrawRectangle(GetX(), GetY(), 5, 5, 0, 0, 0);
