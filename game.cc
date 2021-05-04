@@ -1,6 +1,7 @@
 #include "game.h"
 #include <vector>
 #include <stdlib.h>
+#include <string>
 
 #include "cpputils/graphics/image.h"
 
@@ -48,8 +49,13 @@ void Game::Init() {
 }
 
 void Game::UpdateScreen() {
+ 
   background_.DrawRectangle(0, 0, background_.GetWidth(),
                             background_.GetHeight(), 255, 255, 255);
+
+  std::string scoreMsg = "SCORE: " + std::to_string(score_); 
+  background_.DrawText(1,1, scoreMsg, 25, 0,0,0);
+
   if (player.GetIsActive()) {
     player.Draw(background_);
   }
@@ -73,7 +79,10 @@ void Game::UpdateScreen() {
       player_projectiles_[i]->Draw(background_);
     }
   }
-  return;
+  if (lost_) {
+    std::string gameOverMessage = "GAME OVER";
+    background_.DrawText(250,250, gameOverMessage,70, 0,0,0);
+  }
 }
 
 void Game::Start() {
