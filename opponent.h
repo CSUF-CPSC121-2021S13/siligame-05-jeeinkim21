@@ -14,7 +14,7 @@ class OpponentProjectile : public GameElement {
       : GameElement(x, y, 10, 10) {}  // inheritance
   void Move(const graphics::Image &image) override;
 
-  void Draw(graphics::Image &image) override;
+  void Draw(graphics::Image &oProjectile) override;
 };
 
 
@@ -25,7 +25,10 @@ class Opponent : public GameElement {
   std::unique_ptr<OpponentProjectile> LaunchProjectile();
 
   void Move(const graphics::Image &image) override;
-  void Draw(graphics::Image &image) override;
+  void Draw(graphics::Image &player2) override;
+
+  private:
+  int counter = 0;
 };
 
 

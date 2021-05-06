@@ -18,28 +18,11 @@ void Game::CreateOpponents() {
 void Game::LaunchProjectiles(){
  for (int i = 0; i < opponents_.size(); i++) {
    std::unique_ptr<OpponentProjectile> opponentUniquePtr = opponents_[i]->LaunchProjectile(); 
-  //  std::unique_ptr<OpponentProjectile> different_opponentUniquePtr = std::move(opponentUniquePtr); 
-  //  if (opponents_[i]->LaunchProjectile() != nullptr) {
      if (opponentUniquePtr != nullptr) {
      opponent_projectiles_.push_back(std::move(opponentUniquePtr)); 
-     }
+     } 
    }
 }
-// void Game::CreateOpponentProjectiles() {
-//   int x = 100;
-//   int y = 100; 
-//   std::unique_ptr<Opponent> opponent_p = std::make_unique<Opponent>(x,y); 
-//   opponent_projectiles_.push_back(opponent_p);
-//   return;
-// }
-
-// void Game::CreatePlayerProjectiles() {
-//   int x = 150; 
-//   int y = 150;
-//   std::unique_ptr<Opponent> player_p = std::make_unique<Opponent>(x,y); 
-//   player_projectiles_.push_back(player_p);
-//   return;
-// }
 
 void Game::Init() {
   player.SetX(10);
@@ -79,13 +62,12 @@ void Game::UpdateScreen() {
   std::string scoreMsg = "SCORE: " + std::to_string(score_); 
   background_.DrawText(1,1, scoreMsg, 25, 0,0,0);
 
-  if (player.GetIsActive()) {
+  if (player.GetIsActive() == true) {
     player.Draw(background_);
   }
 
   for (int i = 0; i < opponents_.size(); i++) {
-    if (opponents_[i]
-            ->GetIsActive()) {  // you want you iterate through the vector then
+    if (opponents_[i]->GetIsActive()) {  // you want you iterate through the vector then
                                // check if each opp is active
       opponents_[i]->Draw(background_);
     }
@@ -102,7 +84,7 @@ void Game::UpdateScreen() {
       player_projectiles_[i]->Draw(background_);
     }
   }
-  if (lost_) {
+  if (lost_ == true) {
     std::string gameOverMessage = "GAME OVER";
     background_.DrawText(250,250, gameOverMessage,70, 0,0,0);
   }
@@ -114,8 +96,6 @@ void Game::Start() {
 }
 
 void Game::MoveGameElements() {
-  //Modify the MoveGameElements member function to dereference the std::unique_ptr in the vector before calling their Move and GetIsActive functioin. Accessing an element of a vector returns a referene to the std::unique_ptr it contains.
-
   for (int i = 0; i < opponents_.size(); i++) {
     if (opponents_[i]->GetIsActive()) {
       opponents_[i]->Move(background_);
@@ -174,6 +154,7 @@ void Game::OnAnimationStep() {
   RemoveInactive(); 
   UpdateScreen();
   background_.Flush();
+
 }
 
 void Game::OnMouseEvent(const graphics::MouseEvent& event) {

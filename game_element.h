@@ -31,7 +31,7 @@ class GameElement {
   int GetWidth() const { return kWidth_; }
   int GetHeight() const { return kHeight_; }
 
- private:
+ protected:
   bool is_active = true;
   int x_;
   int y_;
