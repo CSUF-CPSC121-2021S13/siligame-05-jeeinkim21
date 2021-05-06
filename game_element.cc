@@ -15,10 +15,10 @@ void GameElement::Draw(graphics::Image& image) {
 }
 
 bool GameElement::IntersectsWith(GameElement* element) {
-  return !(GetX() > *element.GetX() + *element.GetWidth() ||
-           *element.GetX() > GetX() + GetWidth() ||
-           GetY() > *element.GetY() + *element.GetHeight() ||
-           *element.GetY() > GetY() + GetHeight());
+  return !(GetX() > element->GetX() + element->GetWidth() ||
+           element->GetX() > GetX() + GetWidth() ||
+           GetY() > element->GetY() + element->GetHeight() ||
+           element->GetY() > GetY() + GetHeight());
 }
 
 bool GameElement::IsOutOfBounds(const graphics::Image& image) {

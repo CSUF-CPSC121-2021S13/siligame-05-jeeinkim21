@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="49" failures="1" disabled="0" errors="0" time="0.858" timestamp="2021-05-06T00:37:58.131" name="AllTests">
+  <testsuite name="GameElement" tests="4" failures="0" disabled="0" skipped="0" errors="0" time="0.003" timestamp="2021-05-06T00:37:58.132">
+    <testcase name="DefaultConstructor" status="run" result="completed" time="0" timestamp="2021-05-06T00:37:58.132" classname="GameElement" />
+    <testcase name="ParametrizedConstructor" status="run" result="completed" time="0" timestamp="2021-05-06T00:37:58.133" classname="GameElement" />
+    <testcase name="IntersectsWithGameElement" status="run" result="completed" time="0" timestamp="2021-05-06T00:37:58.133" classname="GameElement" />
+    <testcase name="IsOutOfBounds" status="run" result="completed" time="0.001" timestamp="2021-05-06T00:37:58.133" classname="GameElement" />
+  </testsuite>
+  <testsuite name="Opponent" tests="6" failures="1" disabled="0" skipped="2" errors="0" time="0.821" timestamp="2021-05-06T00:37:58.135">
+    <testcase name="InheritsFromGameElement" status="run" result="completed" time="0" timestamp="2021-05-06T00:37:58.135" classname="Opponent" />
+    <testcase name="DefaultConstructor" status="run" result="completed" time="0" timestamp="2021-05-06T00:37:58.135" classname="Opponent" />
+    <testcase name="ParemterizedConstructor" status="run" result="completed" time="0" timestamp="2021-05-06T00:37:58.136" classname="Opponent" />
+    <testcase name="Draw" status="run" result="completed" time="0.816" timestamp="2021-05-06T00:37:58.136" classname="Opponent">
+      <failure message="../settings/unittest.cc:144&#x0A;Death test: (OpponentDraw(),exit(0))&#x0A;    Result: died but not with expected exit code:&#x0A;            Exited with exit status 1&#x0A;Actual msg:&#x0A;[  DEATH   ] AddressSanitizer:DEADLYSIGNAL&#x0A;[  DEATH   ] =================================================================&#x0A;[  DEATH   ] ==4574==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x00000052db5a bp 0x7f425143a850 sp 0x7f425143a810 T1)&#x0A;[  DEATH   ] ==4574==The signal is caused by a READ memory access.&#x0A;[  DEATH   ] ==4574==Hint: address points to the zero page.&#x0A;[  DEATH   ]     #0 0x52db59 in graphics::Image::GetPixel(int, int, int) const (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x52db59)&#x0A;[  DEATH   ]     #1 0x52da42 in graphics::Image::GetRed(int, int) const (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x52da42)&#x0A;[  DEATH   ]     #2 0x52d888 in graphics::Image::GetColor(int, int) const (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x52d888)&#x0A;[  DEATH   ]     #3 0x50eb55 in Opponent::Draw(graphics::Image&amp;) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x50eb55)&#x0A;[  DEATH   ]     #4 0x718bbb in OpponentDraw()::$_1::operator()(std::promise&lt;bool&gt;&amp;) const (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x718bbb)&#x0A;[  DEATH   ]     #5 0x718a69 in void std::__invoke_impl&lt;void, OpponentDraw()::$_1, std::reference_wrapper&lt;std::promise&lt;bool&gt; &gt; &gt;(std::__invoke_other, OpponentDraw()::$_1&amp;&amp;, std::reference_wrapper&lt;std::promise&lt;bool&gt; &gt;&amp;&amp;) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x718a69)&#x0A;[  DEATH   ]     #6 0x7189b1 in std::__invoke_result&lt;OpponentDraw()::$_1, std::reference_wrapper&lt;std::promise&lt;bool&gt; &gt; &gt;::type std::__invoke&lt;OpponentDraw()::$_1, std::reference_wrapper&lt;std::promise&lt;bool&gt; &gt; &gt;(OpponentDraw()::$_1&amp;&amp;, std::reference_wrapper&lt;std::promise&lt;bool&gt; &gt;&amp;&amp;) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x7189b1)&#x0A;[  DEATH   ]     #7 0x718971 in decltype(std::__invoke(_S_declval&lt;0ul&gt;(), _S_declval&lt;1ul&gt;())) std::thread::_Invoker&lt;std::tuple&lt;OpponentDraw()::$_1, std::reference_wrapper&lt;std::promise&lt;bool&gt; &gt; &gt; &gt;::_M_invoke&lt;0ul, 1ul&gt;(std::_Index_tuple&lt;0ul, 1ul&gt;) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x718971)&#x0A;[  DEATH   ]     #8 0x718924 in std::thread::_Invoker&lt;std::tuple&lt;OpponentDraw()::$_1, std::reference_wrapper&lt;std::promise&lt;bool&gt; &gt; &gt; &gt;::operator()() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x718924)&#x0A;[  DEATH   ]     #9 0x7187c8 in std::thread::_State_impl&lt;std::thread::_Invoker&lt;std::tuple&lt;OpponentDraw()::$_1, std::reference_wrapper&lt;std::promise&lt;bool&gt; &gt; &gt; &gt; &gt;::_M_run() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x7187c8)&#x0A;[  DEATH   ]     #10 0x7f4255f676de  (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0xbd6de)&#x0A;[  DEATH   ]     #11 0x7f425623a6da in start_thread (/lib/x86_64-linux-gnu/libpthread.so.0+0x76da)&#x0A;[  DEATH   ]     #12 0x7f42555b6a3e in clone /build/glibc-2ORdQG/glibc-2.27/misc/../sysdeps/unix/sysv/linux/x86_64/clone.S:95&#x0A;[  DEATH   ] &#x0A;[  DEATH   ] AddressSanitizer can not provide additional info.&#x0A;[  DEATH   ] SUMMARY: AddressSanitizer: SEGV (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x52db59) in graphics::Image::GetPixel(int, int, int) const&#x0A;[  DEATH   ] Thread T1 created by T0 here:&#x0A;[  DEATH   ]     #0 0x4c1ecd in pthread_create (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x4c1ecd)&#x0A;[  DEATH   ]     #1 0x7f4255f67994 in std::thread::_M_start_thread(std::unique_ptr&lt;std::thread::_State, std::default_delete&lt;std::thread::_State&gt; &gt;, void (*)()) (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0xbd994)&#x0A;[  DEATH   ]     #2 0x6d18cb in OpponentDraw() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x6d18cb)&#x0A;[  DEATH   ]     #3 0x6d3037 in Opponent_Draw_Test::TestBody() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x6d3037)&#x0A;[  DEATH   ]     #4 0x779a26 in void testing::internal::HandleSehExceptionsInMethodIfSupported&lt;testing::Test, void&gt;(testing::Test*, void (testing::Test::*)(), char const*) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x779a26)&#x0A;[  DEATH   ]     #5 0x772ca8 in void testing::internal::HandleExceptionsInMethodIfSupported&lt;testing::Test, void&gt;(testing::Test*, void (testing::Test::*)(), char const*) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x772ca8)&#x0A;[  DEATH   ]     #6 0x74a917 in testing::Test::Run() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x74a917)&#x0A;[  DEATH   ]     #7 0x74b2e5 in testing::TestInfo::Run() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x74b2e5)&#x0A;[  DEATH   ]     #8 0x74bb8b in testing::TestSuite::Run() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x74bb8b)&#x0A;[  DEATH   ]     #9 0x75ac13 in testing::internal::UnitTestImpl::RunAllTests() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x75ac13)&#x0A;[  DEATH   ]     #10 0x77ac46 in bool testing::internal::HandleSehExceptionsInMethodIfSupported&lt;testing::internal::UnitTestImpl, bool&gt;(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x77ac46)&#x0A;[  DEATH   ]     #11 0x773b9a in bool testing::internal::HandleExceptionsInMethodIfSupported&lt;testing::internal::UnitTestImpl, bool&gt;(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x773b9a)&#x0A;[  DEATH   ]     #12 0x759455 in testing::UnitTest::Run() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x759455)&#x0A;[  DEATH   ]     #13 0x721d00 in RUN_ALL_TESTS() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x721d00)&#x0A;[  DEATH   ]     #14 0x717844 in main (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x717844)&#x0A;[  DEATH   ]     #15 0x7f42554b6b96 in __libc_start_main /build/glibc-2ORdQG/glibc-2.27/csu/../csu/libc-start.c:310&#x0A;[  DEATH   ] &#x0A;[  DEATH   ] ==4574==ABORTING&#x0A;[  DEATH   ] &#x0A;    Should not crash or infinitely loop." type=""><![CDATA[../settings/unittest.cc:144
+Death test: (OpponentDraw(),exit(0))
+    Result: died but not with expected exit code:
+            Exited with exit status 1
+Actual msg:
+[  DEATH   ] AddressSanitizer:DEADLYSIGNAL
+[  DEATH   ] =================================================================
+[  DEATH   ] ==4574==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x00000052db5a bp 0x7f425143a850 sp 0x7f425143a810 T1)
+[  DEATH   ] ==4574==The signal is caused by a READ memory access.
+[  DEATH   ] ==4574==Hint: address points to the zero page.
+[  DEATH   ]     #0 0x52db59 in graphics::Image::GetPixel(int, int, int) const (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x52db59)
+[  DEATH   ]     #1 0x52da42 in graphics::Image::GetRed(int, int) const (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x52da42)
+[  DEATH   ]     #2 0x52d888 in graphics::Image::GetColor(int, int) const (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x52d888)
+[  DEATH   ]     #3 0x50eb55 in Opponent::Draw(graphics::Image&) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x50eb55)
+[  DEATH   ]     #4 0x718bbb in OpponentDraw()::$_1::operator()(std::promise<bool>&) const (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x718bbb)
+[  DEATH   ]     #5 0x718a69 in void std::__invoke_impl<void, OpponentDraw()::$_1, std::reference_wrapper<std::promise<bool> > >(std::__invoke_other, OpponentDraw()::$_1&&, std::reference_wrapper<std::promise<bool> >&&) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x718a69)
+[  DEATH   ]     #6 0x7189b1 in std::__invoke_result<OpponentDraw()::$_1, std::reference_wrapper<std::promise<bool> > >::type std::__invoke<OpponentDraw()::$_1, std::reference_wrapper<std::promise<bool> > >(OpponentDraw()::$_1&&, std::reference_wrapper<std::promise<bool> >&&) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x7189b1)
+[  DEATH   ]     #7 0x718971 in decltype(std::__invoke(_S_declval<0ul>(), _S_declval<1ul>())) std::thread::_Invoker<std::tuple<OpponentDraw()::$_1, std::reference_wrapper<std::promise<bool> > > >::_M_invoke<0ul, 1ul>(std::_Index_tuple<0ul, 1ul>) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x718971)
+[  DEATH   ]     #8 0x718924 in std::thread::_Invoker<std::tuple<OpponentDraw()::$_1, std::reference_wrapper<std::promise<bool> > > >::operator()() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x718924)
+[  DEATH   ]     #9 0x7187c8 in std::thread::_State_impl<std::thread::_Invoker<std::tuple<OpponentDraw()::$_1, std::reference_wrapper<std::promise<bool> > > > >::_M_run() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x7187c8)
+[  DEATH   ]     #10 0x7f4255f676de  (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0xbd6de)
+[  DEATH   ]     #11 0x7f425623a6da in start_thread (/lib/x86_64-linux-gnu/libpthread.so.0+0x76da)
+[  DEATH   ]     #12 0x7f42555b6a3e in clone /build/glibc-2ORdQG/glibc-2.27/misc/../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+[  DEATH   ] 
+[  DEATH   ] AddressSanitizer can not provide additional info.
+[  DEATH   ] SUMMARY: AddressSanitizer: SEGV (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x52db59) in graphics::Image::GetPixel(int, int, int) const
+[  DEATH   ] Thread T1 created by T0 here:
+[  DEATH   ]     #0 0x4c1ecd in pthread_create (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x4c1ecd)
+[  DEATH   ]     #1 0x7f4255f67994 in std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0xbd994)
+[  DEATH   ]     #2 0x6d18cb in OpponentDraw() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x6d18cb)
+[  DEATH   ]     #3 0x6d3037 in Opponent_Draw_Test::TestBody() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x6d3037)
+[  DEATH   ]     #4 0x779a26 in void testing::internal::HandleSehExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x779a26)
+[  DEATH   ]     #5 0x772ca8 in void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x772ca8)
+[  DEATH   ]     #6 0x74a917 in testing::Test::Run() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x74a917)
+[  DEATH   ]     #7 0x74b2e5 in testing::TestInfo::Run() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x74b2e5)
+[  DEATH   ]     #8 0x74bb8b in testing::TestSuite::Run() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x74bb8b)
+[  DEATH   ]     #9 0x75ac13 in testing::internal::UnitTestImpl::RunAllTests() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x75ac13)
+[  DEATH   ]     #10 0x77ac46 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x77ac46)
+[  DEATH   ]     #11 0x773b9a in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x773b9a)
+[  DEATH   ]     #12 0x759455 in testing::UnitTest::Run() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x759455)
+[  DEATH   ]     #13 0x721d00 in RUN_ALL_TESTS() (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x721d00)
+[  DEATH   ]     #14 0x717844 in main (/root/sandbox/siligame-05-jeeinkim21/tools/output/unittest+0x717844)
+[  DEATH   ]     #15 0x7f42554b6b96 in __libc_start_main /build/glibc-2ORdQG/glibc-2.27/csu/../csu/libc-start.c:310
+[  DEATH   ] 
+[  DEATH   ] ==4574==ABORTING
+[  DEATH   ] 
+    Should not crash or infinitely loop.]]></failure>
+    </testcase>
+    <testcase name="Move" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.954" classname="Opponent">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="LaunchProjectile" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.956" classname="Opponent">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+  </testsuite>
+  <testsuite name="OpponentProjectile" tests="5" failures="0" disabled="0" skipped="5" errors="0" time="0.001" timestamp="2021-05-06T00:37:58.956">
+    <testcase name="InheritsFromGameElement" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.957" classname="OpponentProjectile">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="DefaultConstructor" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.957" classname="OpponentProjectile">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="ParemterizedConstructor" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.957" classname="OpponentProjectile">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="Draw" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.957" classname="OpponentProjectile">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="Move" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.957" classname="OpponentProjectile">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+  </testsuite>
+  <testsuite name="Player" tests="6" failures="0" disabled="0" skipped="6" errors="0" time="0" timestamp="2021-05-06T00:37:58.959">
+    <testcase name="InheritsFromGameElement" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.959" classname="Player">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="DefaultConstructor" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.959" classname="Player">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="ParemterizedConstructor" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.959" classname="Player">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="Draw" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.959" classname="Player">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="IntersectsWithOpponentsAndProjectiles" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.960" classname="Player">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="Move" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.960" classname="Player">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+  </testsuite>
+  <testsuite name="PlayerProjectile" tests="6" failures="0" disabled="0" skipped="6" errors="0" time="0.005" timestamp="2021-05-06T00:37:58.960">
+    <testcase name="InheritsFromGameElement" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.960" classname="PlayerProjectile">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="DefaultConstructor" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.961" classname="PlayerProjectile">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="ParemterizedConstructor" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.963" classname="PlayerProjectile">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="Draw" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.963" classname="PlayerProjectile">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="IntersectsWithOpponent" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.963" classname="PlayerProjectile">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="Move" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.965" classname="PlayerProjectile">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+  </testsuite>
+  <testsuite name="Game" tests="22" failures="0" disabled="0" skipped="22" errors="0" time="0.023" timestamp="2021-05-06T00:37:58.965">
+    <testcase name="DefaultConstructor" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.966" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="ParametrizedConstructor" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.966" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="CreateOpponents" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.967" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="MoveActiveGameElements" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.967" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="MoveInActiveGameElements" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.967" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="LaunchProjectiles" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.967" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="FilterIntersectionsWithOpponentProjectile" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.981" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="FilterIntersectionsWithOpponentProjectileNoIntersect" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.982" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="FilterIntersectionsWithOpponent" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.982" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="FilterIntersectionsWithOpponentNoIntersect" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.983" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="Score" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.983" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="ScoreInactivePlayer" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.984" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="RemoveInactive" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.984" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="Init" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.984" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="UpdateScreen" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.984" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="UpdateScreenNoElements" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.985" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="OnAnimationStep" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.985" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="OnAnimationStepProjectiles" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.985" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="OnMouseEvent" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.987" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="OnMouseEventDragged" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.987" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="OnMouseEventPressed" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.988" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+    <testcase name="OnMouseEventOutOfBounds" status="run" result="skipped" time="0" timestamp="2021-05-06T00:37:58.989" classname="Game">
+      <skipped message="../settings/../cppaudit/gtest_ext.h:24&#x0A;Test skipped until other errors are fixed"><![CDATA[../settings/../cppaudit/gtest_ext.h:24
+Test skipped until other errors are fixed]]></skipped>
+    </testcase>
+  </testsuite>
+</testsuites>

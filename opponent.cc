@@ -1,12 +1,13 @@
 #include "opponent.h"
+#include "game.h"
 #include <vector>
 #include "cpputils/graphics/image.h"
 #include "game_element.h"
 
+
 std::unique_ptr<OpponentProjectile> Opponent::LaunchProjectile() { //not sure check later 
     int counter = 0; 
-    for (int i = 0; i < opponents_.size(); i++) {
-    std::unique_ptr<OpponentProjectile> unique_oppProjectile = std::make_unique<OpponentProjectile>(); 
+    std::unique_ptr<OpponentProjectile> unique_oppProjectile = std::make_unique<OpponentProjectile>(GetX(),GetY()); 
     if ( counter % 10 == 0 && counter < 200) {
       return std::move(unique_oppProjectile); 
       counter+=1;
@@ -14,7 +15,7 @@ std::unique_ptr<OpponentProjectile> Opponent::LaunchProjectile() { //not sure ch
     else {
       return nullptr; 
      }
-    }
+    
 }
 
 void Opponent::Draw(graphics::Image &image) {
