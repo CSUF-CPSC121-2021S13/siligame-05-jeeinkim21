@@ -4,12 +4,23 @@
 #include "game_element.h"
 
 void Player::Draw(graphics::Image& image) {
+  if (score_ <= 50) {
   graphics::Image playerImage(50, 50);
   playerImage.Load("player.bmp");
   for (int i = 0; i < playerImage.GetWidth(); i++) {
     for (int j = 0; j < playerImage.GetHeight(); j++) {
       image.SetColor(GetX() + i, GetY() + j, playerImage.GetColor(i, j));
     }
+  }
+  }
+  else {
+    graphics::Image playerImage(50,50);
+    playerImage.Load("playerAdvanced.bmp");
+    for (int i = 0; i < playerImage.GetWidth(); i++) {
+    for (int j = 0; j < playerImage.GetHeight(); j++) {
+      image.SetColor(GetX() + i, GetY() + j, playerImage.GetColor(i, j));
+    }
+  }
   }
 }
 

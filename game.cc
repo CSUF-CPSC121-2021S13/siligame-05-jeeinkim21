@@ -80,6 +80,32 @@ void Game::UpdateScreen() {
       player_projectiles_[i]->Draw(background_);
     }
   }
+  if (score_ == 10) {
+  std::string output_text = "10 points!";
+  background_.DrawText(250,250, output_text, 60, 0, 0, 0);
+  }
+   if (score_ == 20) {
+  std::string output_text = "20 points!";
+  background_.DrawText(250,250, output_text, 60, 0, 0, 0);
+  }
+  if (score_ == 30) {
+  std::string output_text = "30 points!";
+  background_.DrawText(250,250, output_text, 60, 0, 0, 0);
+  }
+   if (score_ == 40) {
+  std::string output_text = "30 points!";
+  background_.DrawText(250,250, output_text, 60, 0, 0, 0);
+  }
+   if (score_ == 40) {
+  std::string output_text = "40 points!";
+  background_.DrawText(250,250, output_text, 60, 0, 0, 0);
+  }
+   if (score_ == 50) {
+  std::string output_text = "50 points! ASSASSIN MODE";
+  background_.DrawText(250,250, output_text, 60, 0, 0, 0);
+  }
+
+
 
   if (HasLost()) {
     background_.DrawRectangle(0,0, background_.GetWidth(),
@@ -179,7 +205,6 @@ void Game::OnMouseEvent(const graphics::MouseEvent& event) {
   }
 
   if (HasLost() && event.GetMouseAction() == graphics::MouseAction::kPressed ) {
-    background_.close(); 
         Game my_game;
         my_game.Init();
         my_game.UpdateScreen();
