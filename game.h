@@ -13,7 +13,7 @@ class Game : public graphics::AnimationEventListener,
              public graphics::MouseEventListener {
  private:
   int score_ = 0;               // keep track of score
-  bool lost_;                   // if player is still playing/has lost
+  bool lost_ = false;           // if player is still playing/has lost
   graphics::Image background_;  // represent game screen
   std::vector<std::unique_ptr<Opponent>> opponents_;  // vector of unique ptrs
   std::vector<std::unique_ptr<OpponentProjectile>>

@@ -64,9 +64,7 @@ void Game::UpdateScreen() {
   }
 
   for (int i = 0; i < opponents_.size(); i++) {
-    if (opponents_[i]
-            ->GetIsActive()) {  // you want you iterate through the vector then
-                                // check if each opp is active
+    if (opponents_[i]->GetIsActive()) {
       opponents_[i]->Draw(background_);
     }
   }
@@ -83,8 +81,10 @@ void Game::UpdateScreen() {
     }
   }
   if (HasLost()) {
-    background_.DrawRectangle(0,0, background_.GetWidth(), background_.GetHeight(), 255,255,255); 
-    std::string gameOverMessage = "GAME OVER\n  Score: " + std::to_string(score_); 
+    // background_.DrawRectangle(0,0, background_.GetWidth(),
+    // background_.GetHeight(), 255,255,255);
+    std::string gameOverMessage =
+        "GAME OVER\n  Score: " + std::to_string(score_);
     background_.DrawText(210, 250, gameOverMessage, 90, 255, 0, 0);
   }
 }
@@ -121,23 +121,21 @@ void Game::FilterIntersections() {
       lost_ = true;
       player.SetIsActive(false);
       opponents_[i]->SetIsActive(false);
-    } else {
-      for (int j = 0; j < player_projectiles_.size(); j++) {
-        if (player_projectiles_[j]->IntersectsWith(opponents_[i].get()) &&
-            player_projectiles_[j]->GetIsActive() &&
-            opponents_[i]->GetIsActive()) {
-          player_projectiles_[j]->SetIsActive(false);
-          opponents_[i]->SetIsActive(false);
-          lost_ = false;
+    }
+    for (int j = 0; j < player_projectiles_.size(); j++) {
+      if (player_projectiles_[j]->IntersectsWith(opponents_[i].get()) &&
+          player_projectiles_[j]->GetIsActive() &&
+          opponents_[i]->GetIsActive()) {
+        player_projectiles_[j]->SetIsActive(false);
+        opponents_[i]->SetIsActive(false);
+        // lost_ = false; im so shook i cant believe it was just this.. shooook
 
-          if (player.GetIsActive()) {
-            score_++;
-          }
+        if (player.GetIsActive()) {
+          score_++;
         }
       }
     }
   }
-
   for (int i = 0; i < opponent_projectiles_.size(); i++) {
     if (opponent_projectiles_[i]->IntersectsWith(&player) &&
         opponent_projectiles_[i]->GetIsActive() && player.GetIsActive()) {
@@ -166,13 +164,13 @@ void Game::OnMouseEvent(const graphics::MouseEvent& event) {
        event.GetMouseAction() == graphics::MouseAction::kDragged) &&
       (event.GetX() > 0 && event.GetX() < background_.GetWidth()) &&
       (event.GetY() > 0 && event.GetY() < background_.GetHeight())) {
-    player.SetX(event.GetX() - player.GetWidth() / 2 );
+    player.SetX(event.GetX() - player.GetWidth() / 2);
     player.SetY(event.GetY() - player.GetWidth() / 2);
   }
   if (event.GetMouseAction() == graphics::MouseAction::kDragged ||
       event.GetMouseAction() == graphics::MouseAction::kPressed) {
     std::unique_ptr<PlayerProjectile> playerProjectilePtr =
-        std::make_unique<PlayerProjectile>( event.GetX() , event.GetY() );
+        std::make_unique<PlayerProjectile>(event.GetX(), event.GetY());
     player_projectiles_.push_back(std::move(playerProjectilePtr));
   }
 }
