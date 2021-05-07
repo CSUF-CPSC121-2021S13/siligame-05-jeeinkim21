@@ -26,6 +26,7 @@ class Game : public graphics::AnimationEventListener,
   Game() : Game(800, 600) {}  // sets the game screen to 800x600.
   Game(int width, int height) {
     background_.Initialize(width, height);
+    background_.Load("sandboxBackground.bmp");
     lost_ = false;
   }  // nondefault accepts width/height param to change size of game screen
      // according to user input access objects by reference

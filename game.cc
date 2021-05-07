@@ -53,8 +53,9 @@ void Game::RemoveInactive() {
 }
 
 void Game::UpdateScreen() {
-  background_.DrawRectangle(0, 0, background_.GetWidth(),
-                            background_.GetHeight(), 255, 255, 255);
+  // background_.DrawRectangle(0, 0, background_.GetWidth(),
+  //                           background_.GetHeight(), 255, 255, 255);
+    background_.Load("sandboxBackground.bmp");
 
   std::string scoreMsg = "SCORE: " + std::to_string(score_);
   background_.DrawText(1, 1, scoreMsg, 25, 0, 0, 0);
