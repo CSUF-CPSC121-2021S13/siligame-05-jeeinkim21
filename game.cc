@@ -83,8 +83,9 @@ void Game::UpdateScreen() {
     }
   }
   if (HasLost()) {
-    std::string gameOverMessage = "GAME OVER";
-    background_.DrawText(250, 250, gameOverMessage, 70, 0, 0, 0);
+    background_.DrawRectangle(0,0, background_.GetWidth(), background_.GetHeight(), 255,255,255); 
+    std::string gameOverMessage = "GAME OVER\n  Score: " + std::to_string(score_); 
+    background_.DrawText(210, 250, gameOverMessage, 90, 255, 0, 0);
   }
 }
 
@@ -165,14 +166,13 @@ void Game::OnMouseEvent(const graphics::MouseEvent& event) {
        event.GetMouseAction() == graphics::MouseAction::kDragged) &&
       (event.GetX() > 0 && event.GetX() < background_.GetWidth()) &&
       (event.GetY() > 0 && event.GetY() < background_.GetHeight())) {
-    player.SetX(event.GetX() - player.GetWidth() / 2);
+    player.SetX(event.GetX() - player.GetWidth() / 2 );
     player.SetY(event.GetY() - player.GetWidth() / 2);
   }
   if (event.GetMouseAction() == graphics::MouseAction::kDragged ||
       event.GetMouseAction() == graphics::MouseAction::kPressed) {
     std::unique_ptr<PlayerProjectile> playerProjectilePtr =
-        std::make_unique<PlayerProjectile>(player.GetWidth() / 2,
-                                           player.GetHeight() / 2);
+        std::make_unique<PlayerProjectile>( event.GetX() , event.GetY() );
     player_projectiles_.push_back(std::move(playerProjectilePtr));
   }
 }
