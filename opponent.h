@@ -24,8 +24,14 @@ class Opponent : public GameElement {
 
   void Move(const graphics::Image &image) override;
   void Draw(graphics::Image &player2) override;
+   void Helper(
+      graphics::Image& opponentImage,
+      graphics::Image& image);
 
  private:
+  graphics::Image opponentImage;
+  graphics::Image opponentImage2; 
+  bool toggleSwitch = true; 
   int counter = 0;
 };
 

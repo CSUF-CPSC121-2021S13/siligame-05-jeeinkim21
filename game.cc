@@ -80,13 +80,17 @@ void Game::UpdateScreen() {
       player_projectiles_[i]->Draw(background_);
     }
   }
+
   if (HasLost()) {
-    // background_.DrawRectangle(0,0, background_.GetWidth(),
-    // background_.GetHeight(), 255,255,255);
+    background_.DrawRectangle(0,0, background_.GetWidth(),
+    background_.GetHeight(), 255,255,255);
     std::string gameOverMessage =
         "GAME OVER\n  Score: " + std::to_string(score_);
-    background_.DrawText(210, 250, gameOverMessage, 90, 255, 0, 0);
-  }
+    background_.DrawText(200, 250, gameOverMessage, 100, 196, 24, 24);
+    std::string playAgain = "click to play again"; 
+    background_.DrawText(270, 440, playAgain, 40, 0, 0, 0);
+
+}
 }
 
 void Game::Start() {
@@ -173,4 +177,15 @@ void Game::OnMouseEvent(const graphics::MouseEvent& event) {
         std::make_unique<PlayerProjectile>(event.GetX(), event.GetY());
     player_projectiles_.push_back(std::move(playerProjectilePtr));
   }
+
+  if (HasLost() && event.GetMouseAction() == graphics::MouseAction::kPressed ) {
+    background_.close(); 
+        Game my_game;
+        my_game.Init();
+        my_game.UpdateScreen();
+        my_game.Start();
+    }
+  
+
+  
 }
