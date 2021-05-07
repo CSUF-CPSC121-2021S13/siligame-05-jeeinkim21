@@ -72,11 +72,11 @@ int main() {
   // player2.SaveImageBmp("opponent.bmp");
 
   // graphics::Image pProjectile(10, 10);
-  
+
   // pProjectile.SaveImageBmp("player_projectile.bmp");
 
   // graphics::Image player1(50, 50);
- 
+
   Game my_game;
   my_game.Init();
   my_game.UpdateScreen();

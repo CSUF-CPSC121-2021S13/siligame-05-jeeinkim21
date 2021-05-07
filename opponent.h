@@ -3,7 +3,6 @@
 #include "cpputils/graphics/image.h"
 #include "game_element.h"
 
-
 #ifndef OPPONENT_H
 #define OPPONENT_H
 
@@ -17,7 +16,6 @@ class OpponentProjectile : public GameElement {
   void Draw(graphics::Image &oProjectile) override;
 };
 
-
 class Opponent : public GameElement {
  public:
   Opponent() : Opponent(0, 0) {}
@@ -27,9 +25,8 @@ class Opponent : public GameElement {
   void Move(const graphics::Image &image) override;
   void Draw(graphics::Image &player2) override;
 
-  private:
+ private:
   int counter = 0;
 };
-
 
 #endif

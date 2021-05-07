@@ -6,19 +6,18 @@
 #include "opponent.h"
 #include "player.h"
 
-
 #ifndef GAME_H
 #define GAME_H
 
 class Game : public graphics::AnimationEventListener,
              public graphics::MouseEventListener {
- 
  private:
-  int score_ = 0; //keep track of score
-  bool lost_; //if player is still playing/has lost
-  graphics::Image background_;       // represent game screen
-  std::vector<std::unique_ptr<Opponent>> opponents_;  // vector of unique ptrs 
-  std::vector<std::unique_ptr<OpponentProjectile>> opponent_projectiles_;  // represent opp projectiles
+  int score_ = 0;               // keep track of score
+  bool lost_;                   // if player is still playing/has lost
+  graphics::Image background_;  // represent game screen
+  std::vector<std::unique_ptr<Opponent>> opponents_;  // vector of unique ptrs
+  std::vector<std::unique_ptr<OpponentProjectile>>
+      opponent_projectiles_;  // represent opp projectiles
   std::vector<std::unique_ptr<PlayerProjectile>>
       player_projectiles_;  // represent player projectiles
   Player player;
@@ -27,15 +26,15 @@ class Game : public graphics::AnimationEventListener,
   Game() : Game(800, 600) {}  // sets the game screen to 800x600.
   Game(int width, int height) {
     background_.Initialize(width, height);
-    lost_ = false; 
+    lost_ = false;
   }  // nondefault accepts width/height param to change size of game screen
      // according to user input access objects by reference
   graphics::Image& GetGameScreen() { return background_; }
-  void LaunchProjectiles(); 
+  void LaunchProjectiles();
   void CreateOpponents();
   void Init();
   void UpdateScreen();
-  void RemoveInactive(); 
+  void RemoveInactive();
   void Start();
   void MoveGameElements();
   void FilterIntersections();
@@ -51,10 +50,8 @@ class Game : public graphics::AnimationEventListener,
   }
   Player& GetPlayer() { return player; }
   int GetScore() const { return score_; }
-  
-  
-  bool HasLost() {  return lost_; }
 
+  bool HasLost() { return lost_; }
 };
 
 #endif

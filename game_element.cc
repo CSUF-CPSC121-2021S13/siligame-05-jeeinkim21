@@ -2,8 +2,6 @@
 #include <vector>
 #include "cpputils/graphics/image.h"
 
-
-
 bool GameElement::IntersectsWith(GameElement* element) {
   return !(GetX() > element->GetX() + element->GetWidth() ||
            element->GetX() > GetX() + GetWidth() ||

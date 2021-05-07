@@ -3,7 +3,6 @@
 #include <string>
 #include "cpputils/graphics/image.h"
 
-
 class GameElement {
  public:
   GameElement() : x_(0), y_(0), kWidth_(50), kHeight_(50) {}
@@ -14,7 +13,9 @@ class GameElement {
   // Create a Move pure virtual function that accepts a reference to a
   // graphics::Image object
   virtual void Move(const graphics::Image& image) = 0;
-  //Modify the IntersectsWith member function to receive a GameElement pointer instead of a constant reference. As a result you will need to modify the code to use pointers.
+  // Modify the IntersectsWith member function to receive a GameElement pointer
+  // instead of a constant reference. As a result you will need to modify the
+  // code to use pointers.
   bool IntersectsWith(GameElement* element);
   // IsOutOfBounds member function thact accepts a reference to a
   // graphics::Image object and returns a boolean value
