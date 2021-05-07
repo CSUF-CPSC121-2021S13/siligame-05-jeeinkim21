@@ -14,7 +14,7 @@ class Game : public graphics::AnimationEventListener,
              public graphics::MouseEventListener {
  
  private:
-  int score_ = 50; //keep track of score
+  int score_ = 0; //keep track of score
   bool lost_; //if player is still playing/has lost
   graphics::Image background_;       // represent game screen
   std::vector<std::unique_ptr<Opponent>> opponents_;  // vector of unique ptrs 
@@ -27,6 +27,7 @@ class Game : public graphics::AnimationEventListener,
   Game() : Game(800, 600) {}  // sets the game screen to 800x600.
   Game(int width, int height) {
     background_.Initialize(width, height);
+    lost_ = false; 
   }  // nondefault accepts width/height param to change size of game screen
      // according to user input access objects by reference
   graphics::Image& GetGameScreen() { return background_; }
@@ -52,13 +53,8 @@ class Game : public graphics::AnimationEventListener,
   int GetScore() const { return score_; }
   
   
-  bool HasLost() { 
-      if (lost_) {
-          return true; 
-      } else {
-          return false; 
-      }
-  }
-             };
+  bool HasLost() {  return lost_; }
+
+};
 
 #endif

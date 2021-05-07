@@ -13,7 +13,7 @@ class Player : public GameElement {
   void Move(
       const graphics::Image& image) override;  // inherits from game_element
 
-  void Draw(graphics::Image& image) override;
+  void Draw(graphics::Image& player1) override;
 
   //   bool IntersectsWith(Opponent& opponent_obj);
   //   bool IntersectsWith(OpponentProjectile& opponent_projectile_obj);
@@ -26,7 +26,7 @@ class PlayerProjectile : public GameElement {
   void Move(
       const graphics::Image& image) override;  // inherits from game_element
 
-  void Draw(graphics::Image& image) override;
+  void Draw(graphics::Image& pProjectile) override;
 
   //   bool IntersectsWith(Opponent& opp);
 };
