@@ -16,11 +16,14 @@ void Opponent::Draw(graphics::Image &image) {
   }
 }
 void Opponent::Helper( graphics::Image& opponentImage,graphics::Image& image){
+  graphics::Color doNotDraw(255,255,255);
   for (int i = 0; i < opponentImage.GetWidth(); i++) {
       for (int j = 0; j < opponentImage.GetHeight(); j++) {
         int left = i + (GetX() - opponentImage.GetWidth() / 2);
         int top = j + (GetY() - opponentImage.GetHeight() / 2);
+        if (opponentImage.GetColor(i,j) != doNotDraw) {
         image.SetColor(left, top, opponentImage.GetColor(i, j));
+        }
       }
     }
 }
@@ -75,10 +78,14 @@ void Opponent::Move(const graphics::Image &image) {
 void OpponentProjectile::Draw(graphics::Image &image) {
   graphics::Image opponentPImage(10, 10);
   opponentPImage.Load("opponent_projectile.bmp");
+  graphics::Color doNotDraw(255,255,255);
+
   for (int i = 0; i < opponentPImage.GetWidth(); i++) {
     for (int j = 0; j < opponentPImage.GetHeight(); j++) {
+      if (opponentPImage.GetColor(i,j) != doNotDraw) {
       image.SetColor(GetX() + i, GetY() + j, opponentPImage.GetColor(i, j));
     }
+  }
   }
 }
 
