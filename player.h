@@ -18,6 +18,8 @@ class Player : public GameElement {
  
   void Draw2(graphics::Image& image);
  
+  void Draw3(graphics::Image& image);
+  
   private:
   bool toggleImage = false; 
  

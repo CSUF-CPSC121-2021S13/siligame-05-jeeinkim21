@@ -24,6 +24,7 @@ class Game : public graphics::AnimationEventListener,
   Player playerUpgrade; 
  
   bool toggle = false; //to switch player images
+  bool toggle2 = false; 
  
  public:
  

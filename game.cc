@@ -60,7 +60,7 @@ void Game::UpdateScreen() {
   std::string scoreMsg = "SCORE: " + std::to_string(score_);
   background_.DrawText(1, 1, scoreMsg, 25, 0, 0, 0);
  
-  if (player.GetIsActive() == true && score_ < 10 && toggle == false) { //draw starting character 
+  if (player.GetIsActive() == true && score_ < 10 && toggle == false && toggle2 == false) { //draw starting character 
     player.Draw(background_);
   }
   if (score_ >= 10 ) {
@@ -68,6 +68,13 @@ void Game::UpdateScreen() {
   }
   if (player.GetIsActive() == true && score_ > 10) { //draw Rock Lee 
     player.Draw2(background_);
+  }
+  if(score_>=30) { 
+    toggle2 = true; 
+    toggle = false; 
+  }
+  if (player.GetIsActive() == true && score_ > 30 && toggle2 == true && toggle == false) {
+    player.Draw3(background_); 
   }
  
   for (int i = 0; i < opponents_.size(); i++) {
@@ -88,7 +95,7 @@ void Game::UpdateScreen() {
     }
   }
   if (score_ == 10) {
-  std::string output_text = "10 points! Leveling up";
+  std::string output_text = "10 points! Leveling up! (+5/hit) ";
   background_.DrawText(250,250, output_text, 60, 0, 0, 0);
   }
    if (score_ == 20) {
@@ -96,11 +103,7 @@ void Game::UpdateScreen() {
   background_.DrawText(250,250, output_text, 60, 0, 0, 0);
   }
   if (score_ == 30) {
-  std::string output_text = "30 points!";
-  background_.DrawText(250,250, output_text, 60, 0, 0, 0);
-  }
-   if (score_ == 40) {
-  std::string output_text = "30 points!";
+  std::string output_text = "30 points! Leveling up! (+10/hit)";
   background_.DrawText(250,250, output_text, 60, 0, 0, 0);
   }
    if (score_ == 40) {

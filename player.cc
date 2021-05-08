@@ -2,7 +2,20 @@
 #include <vector>
 #include "cpputils/graphics/image.h"
 #include "game_element.h"
- 
+
+void Player::Draw3(graphics::Image& image) {
+   graphics::Image playerImage(50,50);
+   graphics::Color doNotDraw(255,255,255);
+    playerImage.Load("gaara.bmp");
+    for (int i = 0; i < playerImage.GetWidth(); i++) {
+    for (int j = 0; j < playerImage.GetHeight(); j++) {
+      if (playerImage.GetColor(i,j) != doNotDraw) {
+      image.SetColor(GetX() + i, GetY() + j, playerImage.GetColor(i, j));
+    }
+    }
+  }
+}
+
 void Player::Draw2(graphics::Image& image) {
    graphics::Image playerImage(50,50);
    graphics::Color doNotDraw(255,255,255);
