@@ -6,10 +6,11 @@
 void Player::Draw3(graphics::Image& image) {
    graphics::Image playerImage(50,50);
    graphics::Color doNotDraw(255,255,255);
+   graphics::Color green(11,87,63);
     playerImage.Load("gaara.bmp");
     for (int i = 0; i < playerImage.GetWidth(); i++) {
     for (int j = 0; j < playerImage.GetHeight(); j++) {
-      if (playerImage.GetColor(i,j) != doNotDraw) {
+      if (playerImage.GetColor(i,j) != doNotDraw && playerImage.GetColor(i,j) != green) {
       image.SetColor(GetX() + i, GetY() + j, playerImage.GetColor(i, j));
     }
     }

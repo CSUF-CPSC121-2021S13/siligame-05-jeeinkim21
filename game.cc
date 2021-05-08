@@ -66,14 +66,15 @@ void Game::UpdateScreen() {
   if (score_ >= 10 ) {
     toggle = true; 
   }
-  if (player.GetIsActive() == true && score_ > 10) { //draw Rock Lee 
+  if (player.GetIsActive() == true && score_ > 10 && rockLee == true) { //draw Rock Lee 
     player.Draw2(background_);
   }
   if(score_>=30) { 
+    rockLee = false; 
     toggle2 = true; 
     toggle = false; 
   }
-  if (player.GetIsActive() == true && score_ > 30 && toggle2 == true && toggle == false) {
+  if (player.GetIsActive() == true && score_ > 30 && toggle2 == true && toggle == false && rockLee == false) {
     player.Draw3(background_); 
   }
  
