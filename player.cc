@@ -2,10 +2,21 @@
 #include <vector>
 #include "cpputils/graphics/image.h"
 #include "game_element.h"
-
-
+ 
+void Player::Draw2(graphics::Image& image) {
+   graphics::Image playerImage(50,50);
+   graphics::Color doNotDraw(255,255,255);
+    playerImage.Load("rockLee.bmp");
+    for (int i = 0; i < playerImage.GetWidth(); i++) {
+    for (int j = 0; j < playerImage.GetHeight(); j++) {
+      if (playerImage.GetColor(i,j) != doNotDraw) {
+      image.SetColor(GetX() + i, GetY() + j, playerImage.GetColor(i, j));
+    }
+    }
+  }
+}
+ 
 void Player::Draw(graphics::Image& image) {
-  // if (score_ <= 50) {
   graphics::Image playerImage(50, 50);
   graphics::Color doNotDraw(255,255,255);
   playerImage.Load("player.bmp");
@@ -15,19 +26,10 @@ void Player::Draw(graphics::Image& image) {
       image.SetColor(GetX() + i, GetY() + j, playerImage.GetColor(i, j));
     }
   }
-  }
-  // }
-  // else {
-  //   graphics::Image playerImage(50,50);
-  //   playerImage.Load("playerAdvanced.bmp");
-  //   for (int i = 0; i < playerImage.GetWidth(); i++) {
-  //   for (int j = 0; j < playerImage.GetHeight(); j++) {
-  //     image.SetColor(GetX() + i, GetY() + j, playerImage.GetColor(i, j));
-  //   }
-  // }
-  // }
+ }
 }
-
+ 
+ 
 void PlayerProjectile::Draw(graphics::Image& image) {
   graphics::Image playerProjectileImage(10, 10);
   graphics::Color doNotDraw(255,255,255);
@@ -42,9 +44,9 @@ void PlayerProjectile::Draw(graphics::Image& image) {
     }
   }
 }
-
+ 
 void Player::Move(const graphics::Image& image) {}
-
+ 
 void PlayerProjectile::Move(const graphics::Image& image) {
   if (!IsOutOfBounds(image)) {
     SetY(GetY() - 3);
@@ -52,3 +54,4 @@ void PlayerProjectile::Move(const graphics::Image& image) {
     SetIsActive(false);
   }
 }
+ 

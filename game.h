@@ -5,10 +5,10 @@
 #include "cpputils/graphics/image_event.h"  //needed for animations
 #include "opponent.h"
 #include "player.h"
-
+ 
 #ifndef GAME_H
 #define GAME_H
-
+ 
 class Game : public graphics::AnimationEventListener,
              public graphics::MouseEventListener {
  private:
@@ -21,8 +21,12 @@ class Game : public graphics::AnimationEventListener,
   std::vector<std::unique_ptr<PlayerProjectile>>
       player_projectiles_;  // represent player projectiles
   Player player;
-
+  Player playerUpgrade; 
+ 
+  bool toggle = false; //to switch player images
+ 
  public:
+ 
   Game() : Game(800, 600) {}  // sets the game screen to 800x600.
   Game(int width, int height) {
     background_.Initialize(width, height);
@@ -41,7 +45,7 @@ class Game : public graphics::AnimationEventListener,
   void FilterIntersections();
   void OnAnimationStep() override;
   void OnMouseEvent(const graphics::MouseEvent& event) override;
-
+ 
   std::vector<std::unique_ptr<Opponent>>& GetOpponents() { return opponents_; }
   std::vector<std::unique_ptr<OpponentProjectile>>& GetOpponentProjectiles() {
     return opponent_projectiles_;
@@ -51,8 +55,8 @@ class Game : public graphics::AnimationEventListener,
   }
   Player& GetPlayer() { return player; }
   int GetScore() const { return score_; }
-
+ 
   bool HasLost() { return lost_; }
 };
-
+ 
 #endif
