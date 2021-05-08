@@ -66,7 +66,8 @@ void Game::UpdateScreen() {
   if (score_ >= 10 ) {
     toggle = true; 
   }
-  if (player.GetIsActive() == true && score_ > 10 && rockLee == true) { //draw Rock Lee 
+  if (player.GetIsActive() == true && score_ > 10 
+  && rockLee == true) { //draw Rock Lee 
     player.Draw2(background_);
   }
   if(score_>=30) { 
@@ -74,8 +75,20 @@ void Game::UpdateScreen() {
     toggle2 = true; 
     toggle = false; 
   }
-  if (player.GetIsActive() == true && score_ > 30 && toggle2 == true && toggle == false && rockLee == false) {
+  if (player.GetIsActive() == true && score_ > 30 && toggle2 == true 
+  && toggle == false && rockLee == false && gaara == true) { //stop drawing Rock Lee
     player.Draw3(background_); 
+  }
+  if (score_>= 70) {
+    gaara = false; 
+    rockLee = false; 
+    toggle2 = true; 
+    toggle = false; 
+  }
+
+  if (player.GetIsActive() == true && score_ > 70 && toggle2 == true && 
+  toggle == false && rockLee == false && gaara == false) {
+    player.Draw4(background_); 
   }
  
   for (int i = 0; i < opponents_.size(); i++) {
@@ -111,8 +124,8 @@ void Game::UpdateScreen() {
   std::string output_text = "40 points!";
   background_.DrawText(250,250, output_text, 60, 0, 0, 0);
   }
-   if (score_ == 50) {
-  std::string output_text = "50 points!\n NINE-TAIL CHAKRA MODE";
+   if (score_ == 70) {
+  std::string output_text = "70 points!\n NINE-TAIL CHAKRA MODE (+25/hit";
   background_.DrawText(250,250, output_text, 60, 0, 0, 0);
   }
  

@@ -12,6 +12,7 @@
 class Game : public graphics::AnimationEventListener,
              public graphics::MouseEventListener {
  private:
+ bool gaara = true; 
  bool rockLee = true; 
   int score_ = 0;               // keep track of score
   bool lost_ = false;           // if player is still playing/has lost
