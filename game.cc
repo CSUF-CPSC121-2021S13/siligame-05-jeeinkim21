@@ -167,8 +167,11 @@ void Game::FilterIntersections() {
         opponents_[i]->SetIsActive(false);
         // lost_ = false; im so shook i cant believe it was just this.. shooook
  
-        if (player.GetIsActive()) {
+        if (player.GetIsActive() && toggle == false) { //changing to update score to add more with brock 
           score_++;
+        }
+        else if (player.GetIsActive() == true && toggle == true) {
+          score_+=5; 
         }
       }
     }
