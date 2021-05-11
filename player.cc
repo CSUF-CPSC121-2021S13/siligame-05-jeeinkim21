@@ -4,9 +4,11 @@
 #include "game_element.h"
 
 void Player::Draw4(graphics::Image& image) {
+
    graphics::Image playerImage(50,50);
    graphics::Color doNotDraw(255,255,255);
    graphics::Color green(11,87,63);
+
     playerImage.Load("naruto.bmp");
     for (int i = 0; i < playerImage.GetWidth(); i++) {
     for (int j = 0; j < playerImage.GetHeight(); j++) {
@@ -35,28 +37,41 @@ void Player::Draw2(graphics::Image& image) {
    graphics::Image playerImage(50,50);
    graphics::Color doNotDraw(255,255,255);
     playerImage.Load("rockLee.bmp");
+
     for (int i = 0; i < playerImage.GetWidth(); i++) {
     for (int j = 0; j < playerImage.GetHeight(); j++) {
       if (playerImage.GetColor(i,j) != doNotDraw) {
       image.SetColor(GetX() + i, GetY() + j, playerImage.GetColor(i, j));
     }
     }
-  }
 }
- 
+}
+
+
 void Player::Draw(graphics::Image& image) {
-  graphics::Image playerImage(50, 50);
-  graphics::Color doNotDraw(255,255,255);
-  playerImage.Load("player.bmp");
-  for (int i = 0; i < playerImage.GetWidth(); i++) {
-    for (int j = 0; j < playerImage.GetHeight(); j++) {
-       if (playerImage.GetColor(i,j) != doNotDraw) {
-      image.SetColor(GetX() + i, GetY() + j, playerImage.GetColor(i, j));
-    }
+   if (toggleSwitch) {
+    playerImage.Load("rockLee.bmp");
+    Helper(playerImage, image);
+    toggleSwitch = false;
+  } else {
+    playerImage2.Load("rockLee2.bmp");
+    Helper(playerImage2, image);
+    toggleSwitch = true;
   }
- }
 }
- 
+
+void Player::Helper(graphics::Image& playerImage,graphics::Image& image) {
+     graphics::Color doNotDraw(255,255,255); 
+  for (int i = 0; i < playerImage.GetWidth(); i++) {
+      for (int j = 0; j < playerImage.GetHeight(); j++) {
+        if ( playerImage.GetColor(i, j) != doNotDraw) {
+        int left = i + (GetX() - playerImage.GetWidth() / 2);
+        int top = j + (GetY() - playerImage.GetHeight() / 2);
+        image.SetColor(left, top, playerImage.GetColor(i, j));
+        }
+      }
+    }
+}
  
 void PlayerProjectile::Draw(graphics::Image& image) {
   graphics::Image playerProjectileImage(10, 10);

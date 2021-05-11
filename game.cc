@@ -69,24 +69,25 @@ void Game::UpdateScreen() {
   if (player.GetIsActive() == true && score_ > 10 
   && rockLee == true) { //draw Rock Lee 
     player.Draw2(background_);
+
   }
-  if(score_>=30) { 
+  if(score_>= 50) { //stop drawing Rock Lee 
     rockLee = false; 
     toggle2 = true; 
     toggle = false; 
   }
-  if (player.GetIsActive() == true && score_ > 30 && toggle2 == true 
-  && toggle == false && rockLee == false && gaara == true) { //stop drawing Rock Lee
+  if (player.GetIsActive() == true && score_ > 50 && toggle2 == true 
+  && toggle == false && rockLee == false && gaara == true) { //draw Gaara
     player.Draw3(background_); 
   }
-  if (score_>= 70) {
+  if (score_>= 100) { //stop drawing Gaara 
     gaara = false; 
     rockLee = false; 
     toggle2 = true; 
     toggle = false; 
   }
 
-  if (player.GetIsActive() == true && score_ > 70 && toggle2 == true && 
+  if (player.GetIsActive() == true && score_ > 100 && toggle2 == true && //draw Naruto 
   toggle == false && rockLee == false && gaara == false) {
     player.Draw4(background_); 
   }
@@ -112,20 +113,12 @@ void Game::UpdateScreen() {
   std::string output_text = "10 points! Leveling up! (+5/hit) ";
   background_.DrawText(250,250, output_text, 60, 0, 0, 0);
   }
-   if (score_ == 20) {
-  std::string output_text = "20 points!";
-  background_.DrawText(250,250, output_text, 60, 0, 0, 0);
-  }
-  if (score_ == 30) {
-  std::string output_text = "30 points! Leveling up! (+10/hit)";
-  background_.DrawText(250,250, output_text, 60, 0, 0, 0);
-  }
-   if (score_ == 40) {
-  std::string output_text = "40 points!";
-  background_.DrawText(250,250, output_text, 60, 0, 0, 0);
-  }
-   if (score_ == 70) {
-  std::string output_text = "70 points!\n NINE-TAIL CHAKRA MODE (+25/hit";
+   if (score_ == 50) {
+     std::string output_text = "50 points! Leveling up! (+10/hit)";
+     background_.DrawText(250,250, output_text, 60, 0, 0, 0); 
+   }
+   if (score_ == 100) {
+  std::string output_text = "100 points!\nFinal Round! +25/hit";
   background_.DrawText(250,250, output_text, 60, 0, 0, 0);
   }
  
@@ -134,7 +127,18 @@ void Game::UpdateScreen() {
   if (HasLost()) {
     background_.DrawRectangle(0,0, background_.GetWidth(),
     background_.GetHeight(), 255,255,255);
-    std::string gameOverMessage =
+    
+    player.SetIsActive(false);
+    for (int i = 0; i < opponents_.size(); i++) {
+    opponents_[i]->SetIsActive(false);
+    }
+      for (int i = 0; i < opponent_projectiles_.size(); i++) {
+    opponent_projectiles_[i]->SetIsActive(false);
+    }
+       for (int i = 0; i < player_projectiles_.size(); i++) {
+    player_projectiles_[i]->SetIsActive(false);
+    }
+        std::string gameOverMessage =
         "GAME OVER\n  Score: " + std::to_string(score_);
     background_.DrawText(200, 250, gameOverMessage, 100, 196, 24, 24);
     std::string playAgain = "click to play again"; 
@@ -232,10 +236,14 @@ void Game::OnMouseEvent(const graphics::MouseEvent& event) {
   }
  
   if (HasLost() && event.GetMouseAction() == graphics::MouseAction::kPressed ) {
-        Game my_game;
-        my_game.Init();
-        my_game.UpdateScreen();
-        my_game.Start();
+      
+      player.SetIsActive(true); 
+      score_ = 0; 
+      lost_ = false;
+      player.SetX(10);
+      player.SetY(10);
+      player.Draw(background_); 
+
     }
   
 }

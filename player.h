@@ -15,6 +15,8 @@ class Player : public GameElement {
       const graphics::Image& image) override;  // inherits from game_element
  
   void Draw(graphics::Image& player1) override;
+
+  void Helper(graphics::Image& playerImage,graphics::Image& image); //for draw function
  
   void Draw2(graphics::Image& image);
  
@@ -23,6 +25,9 @@ class Player : public GameElement {
   void Draw4(graphics::Image& image);
 
   private:
+  graphics::Image playerImage;
+  graphics::Image playerImage2; 
+  bool toggleSwitch = true; //for animation effect 
   bool toggleImage = false; 
  
   //   bool IntersectsWith(Opponent& opponent_obj);
