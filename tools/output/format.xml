@@ -1,0 +1,113 @@
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='0' length='178'>#include "cpputils/graphics/image.h"&#10;#include "game.h"&#10;#include "game_element.h"&#10;#include "opponent.h"&#10;#include "player.h"&#10;#include &lt;iostream>&#10;#include &lt;memory>&#10;#include &lt;string></replacement>
+<replacement offset='257' length='2'> </replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='0' length='100'>#include "player.h"&#10;#include "cpputils/graphics/image.h"&#10;#include "game_element.h"&#10;#include &lt;vector></replacement>
+<replacement offset='135' length='0'> </replacement>
+<replacement offset='136' length='1'></replacement>
+<replacement offset='458' length='0'> </replacement>
+<replacement offset='459' length='1'></replacement>
+<replacement offset='859' length='0'> </replacement>
+<replacement offset='860' length='1'></replacement>
+<replacement offset='921' length='0'> </replacement>
+<replacement offset='922' length='1'></replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='0' length='120'>#include "opponent.h"&#10;#include "cpputils/graphics/image.h"&#10;#include "game.h"&#10;#include "game_element.h"&#10;#include &lt;vector></replacement>
+<replacement offset='681' length='2'> </replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='0' length='80'>#include "game_element.h"&#10;#include "cpputils/graphics/image.h"&#10;#include &lt;vector></replacement>
+<replacement offset='126' length='0'> </replacement>
+<replacement offset='127' length='1'></replacement>
+<replacement offset='422' length='0'> </replacement>
+<replacement offset='423' length='1'></replacement>
+<replacement offset='476' length='15'></replacement>
+<replacement offset='505' length='2'> </replacement>
+<replacement offset='617' length='2'> </replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='694' length='2'> </replacement>
+<replacement offset='4638' length='0'> </replacement>
+<replacement offset='4639' length='1'></replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='0' length='102'>#include "cpputils/graphics/image.h"&#10;#include "game_element.h"&#10;#include "opponent.h"&#10;#include &lt;string></replacement>
+<replacement offset='174' length='2'>&#10;</replacement>
+<replacement offset='273' length='1'>&#10;  </replacement>
+<replacement offset='279' length='7'></replacement>
+<replacement offset='307' length='0'> </replacement>
+<replacement offset='308' length='1'></replacement>
+<replacement offset='325' length='2'> </replacement>
+<replacement offset='385' length='0'> </replacement>
+<replacement offset='386' length='1'></replacement>
+<replacement offset='581' length='2'>&#10;</replacement>
+<replacement offset='703' length='2'> </replacement>
+<replacement offset='726' length='1'>&#10;  </replacement>
+<replacement offset='732' length='7'></replacement>
+<replacement offset='760' length='0'> </replacement>
+<replacement offset='761' length='1'></replacement>
+<replacement offset='778' length='2'> </replacement>
+<replacement offset='838' length='0'> </replacement>
+<replacement offset='839' length='1'></replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='14' length='80'>#include "cpputils/graphics/image.h"&#10;#include "game_element.h"&#10;#include &lt;string></replacement>
+<replacement offset='182' length='2'>&#10;</replacement>
+<replacement offset='279' length='7'> </replacement>
+<replacement offset='316' length='2'> </replacement>
+<replacement offset='479' length='2'>&#10;</replacement>
+<replacement offset='577' length='2'> </replacement>
+<replacement offset='752' length='3'>&#10;&#10;</replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='46' length='54'>#include "cpputils/graphics/image.h"&#10;#include &lt;string></replacement>
+<replacement offset='121' length='2'>&#10;</replacement>
+<replacement offset='341' length='0'> </replacement>
+<replacement offset='342' length='1'></replacement>
+<replacement offset='354' length='2'> </replacement>
+<replacement offset='522' length='0'> </replacement>
+<replacement offset='523' length='1'></replacement>
+<replacement offset='754' length='0'> </replacement>
+<replacement offset='755' length='1'></replacement>
+<replacement offset='930' length='0'> </replacement>
+<replacement offset='931' length='1'></replacement>
+<replacement offset='1068' length='2'> </replacement>
+<replacement offset='1306' length='3'>&#10;&#10;</replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='0' length='202'>#include "cpputils/graphics/image.h"&#10;#include "cpputils/graphics/image_event.h" //needed for animations&#10;#include "opponent.h"&#10;#include "player.h"&#10;#include &lt;iostream>&#10;#include &lt;string>&#10;#include &lt;vector></replacement>
+<replacement offset='339' length='2'>&#10;</replacement>
+<replacement offset='367' length='15'>              </replacement>
+<replacement offset='426' length='11'>          </replacement>
+<replacement offset='506' length='2'> </replacement>
+<replacement offset='585' length='2'> </replacement>
+<replacement offset='691' length='2'> </replacement>
+<replacement offset='797' length='2'> </replacement>
+<replacement offset='847' length='3'>&#10;&#10;</replacement>
+<replacement offset='886' length='2'> </replacement>
+<replacement offset='1021' length='2'> </replacement>
+<replacement offset='1093' length='6'>&#10;    </replacement>
+<replacement offset='1171' length='0'> </replacement>
+<replacement offset='1172' length='1'></replacement>
+<replacement offset='1484' length='0'> </replacement>
+<replacement offset='1485' length='1'></replacement>
+<replacement offset='1544' length='0'> </replacement>
+<replacement offset='1545' length='1'></replacement>
+<replacement offset='1634' length='0'> </replacement>
+<replacement offset='1635' length='1'></replacement>
+<replacement offset='1749' length='0'> </replacement>
+<replacement offset='1750' length='1'></replacement>
+<replacement offset='1820' length='0'> </replacement>
+<replacement offset='1821' length='1'></replacement>
+</replacements>
